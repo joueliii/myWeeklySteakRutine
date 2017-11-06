@@ -9,16 +9,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
   // This is our own Javascript code... 
-  var steakType
-  var steakWeight
-  var totalWeight = 300
-
+ 
+  totalWeight = 0;
+  var result = 0;
   
   function inputData() {
-    WeightInput = document.forms["myForm"]["fname"].value;
+    var WeightInput = document.forms["inputForm"]["weight"].value;
   if (WeightInput < 0 || WeightInput > 1000 || WeightInput == null) {
     alert("Invalid steak weight!!!")
-    return false;
+  } else {
+    result = Number(totalWeight) + Number(WeightInput); // SERIOUSLY, WHO CAME UP WITH THIS LANGUAGE?? I CANT ADD TWO VARIABLES TOGETHER WITHOUTH THIS NUMBER()-STUFF?? SHAKING MY HEAD :()
+    document.getElementById('weightcounter').innerHTML = "Total Amount of delicious steak: " + result + " KG"
   }
 
   }
@@ -123,6 +124,18 @@
     </div>
   </div>
 </div>
+<form name='inputForm'>
+  <select name='steakMenu' size='1'>
+    <option>Beef Steak</option>
+    <option>Pork Steak</option>
+    <option>Turkey Steak</option>
+  </select>
+
+    Weight:<br>
+    <input type="text" name="weight">
+</form> 
+<button type="button" onclick="inputData()">Add</button>
+<h1 id='weightcounter'>Total Amount of delicious steak: 0 KG</h1>
 <button type="button" onclick="revealStakeKing()">The king is dead?</button> 
 <p id=king></p>
 
