@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script> 
+  <script>
+  // This is our own Javascript code... 
   var steakType
   var steakWeight
   var totalWeight
@@ -21,7 +22,13 @@
   }
 
   }
-  
+  function revealStakeKing() {
+    if(totalWeight > 300) {
+      document.getElementById('king').innerHTML = "<img src='steak.jpg'>";
+
+    }
+
+  }
   
   
   </script>
@@ -116,6 +123,6 @@
     </div>
   </div>
 </div>
-
+<p id=king></p>
 </body>
 </html>
