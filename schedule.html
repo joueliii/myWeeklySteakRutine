@@ -12,8 +12,13 @@
   var steakWeight
   var totalWeight
 
+  
   function inputData() {
-
+    WeightInput = document.forms["myForm"]["fname"].value;
+  if (WeightInput < 0 || WeightInput > 1000 || WeightInput == null) {
+    alert("Invalid steak weight!!!")
+    return false;
+  }
 
   }
   
