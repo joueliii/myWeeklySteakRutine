@@ -13,18 +13,18 @@
   var totalWeight = 0;
   // totalWeight variable declared outside of a function so it becomes a global varialbe
   function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
-    var WeightInput = document.forms["inputForm"]["weight"].value;
-  if (WeightInput < 0 || WeightInput > 1000 || WeightInput == null) {
+    var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
+  if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is a number and within limits
     alert("Invalid steak weight!!!")
   } else {
-    totalWeight += parseInt(WeightInput) 
+    totalWeight += WeightInput 
     document.getElementById('weightcounter').innerHTML = "Total Amount of delicious steak: " + totalWeight + " KG"
     revealStakeKing()
   }
   revealStakeKing()
   }
   function revealStakeKing() {
-    if(totalWeight > 300) {
+    if(totalWeight > 500) {
       document.getElementById('king').innerHTML = "<img src='steak.jpg'>";
     }
 
