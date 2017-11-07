@@ -3,23 +3,43 @@
 <head>
   <title>My Weekly Steak Rutine</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
   // This is our own Javascript code... 
  
   var totalWeight = 0;
+  var meats = document.getElementsByClassName("meat")
+    var meat;
   // totalWeight variable declared outside of a function so it becomes a global varialbe
   function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
     var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
   if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is a number and within limits
-    alert("Invalid steak weight!!!")
+    alert("Invalid steak weight!!!") 
   } else {
-    totalWeight += WeightInput 
+    totalWeight += WeightInput
     document.getElementById('weightcounter').innerHTML = "Total Amount of delicious steak: " + totalWeight + " KG"
     revealStakeKing()
+    
+    switch (document.forms.inputForm.steakMenu.value) {
+    case "Beef Steak":
+        meat = "Beef Steak";
+        meats[0].innerHTML = WeightInput
+        break;
+    case "Pork Steak":
+        meat = "Pork Steak";
+        meats[1].innerHTML = WeightInput
+        break;
+    case "Turkey Steak":
+        meat = "Turkey Steak";
+        meats[2].innerHTML = WeightInput
+        break;
+
+    }
+
+
+
+
+
+    
   }
   revealStakeKing()
   }
@@ -47,97 +67,109 @@
   <div class="row seven-cols">
     <div class="col-md-1">Monday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body">
+          <p class=meat></p>
+        </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Tuesday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Wednesday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Thursday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Friday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Saturday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
     </div>
     <div class="col-md-1">Sunday
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-body">A Basic Panel</div>
+        <div class="panel-body"><p class=meat></p></div>
     </div>
   </div>
 </div>
+
+
+
 <form name='inputForm'>
+ <select name='weekDay' size='1'>
+    <option>Monday</option>
+    <option>Tuesday</option>
+    <option>Wednesday</option>
+    <option>Thursday</option>
+    <option>Friday</option>
+    <option>Saturday</option>
+    <option>Sunday</option>
+  </select>
   <select name='steakMenu' size='1'>
     <option>Beef Steak</option>
     <option>Pork Steak</option>
     <option>Turkey Steak</option>
   </select>
 
-    Weight:<br>
+    Weight:
     <input type="text" name="weight">
 </form> 
 <button type="button" onclick="inputData()">Add</button>
-<h1 id='weightcounter'>Total Amount of delicious steak: 0 KG</h1>
+<h1 id='weightcounter'>Total Amount of delicious steak devoured: 0 KG</h1>
 <p id=king></p>
 
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-danger">Danger</button>
 </body>
 </html>
