@@ -9,7 +9,9 @@
  
   var totalWeight = 0;
   var meats = document.getElementsByClassName("meat")
-    var meat;
+  var meatTotal = document.getElementsByClassName("meatTotal")
+  var meat;
+  var dayTotals = [0, 0, 0, 0, 0, 0, 0];
   // totalWeight variable declared outside of a function so it becomes a global varialbe
   function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
     var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
@@ -25,24 +27,38 @@
 
         case "Monday":
             day = 0;
+            dayTotals[0] += WeightInput;
+            meatTotal[0].innerHTML = dayTotals[0];
             break;
         case "Tuesday":
             day = 3;
+            dayTotals[1] += WeightInput;
+            meatTotal[1].innerHTML = dayTotals[1];
             break;
         case "Wednesday":
             day = 6;
+            dayTotals[2] += WeightInput;
+            meatTotal[2].innerHTML = dayTotals[2];
             break;
         case "Thursday":
             day = 9;
+            dayTotals[3] += WeightInput;
+            meatTotal[3].innerHTML = dayTotals[3];
             break;
         case "Friday":
         day = 12;
+            dayTotals[4] += WeightInput;
+            meatTotal[4].innerHTML = dayTotals[4];
             break;
         case "Saturday":
             day = 15;
+            dayTotals[5] += WeightInput;
+            meatTotal[5].innerHTML = dayTotals[5];
             break;
         case "Sunday":
             day = 18;
+            dayTotals[6] += WeightInput;
+            meatTotal[6].innerHTML = dayTotals[6];
             break;
 
 
@@ -93,7 +109,7 @@
     </br>
        Turkey Steak: <p class="meat">0</p>
     </br>
-    Total of the Day:
+    Total of the Day: <p class="meatTotal">0</p>
     </div>
 
     <div class="flex-item">
@@ -104,7 +120,7 @@
       </br>
          Turkey Steak: <p class="meat">0</p>
         </br>
-        Total of the Day:
+        Total of the Day: <p class="meatTotal">0</p>
       </div>
 
       <div class="flex-item">
@@ -115,7 +131,7 @@
         </br>
            Turkey Steak: <p class="meat">0</p>
           </br>
-          Total of the Day:
+          Total of the Day: <p class="meatTotal">0</p>
         </div>
 
         <div class="flex-item">
@@ -126,7 +142,7 @@
           </br>
              Turkey Steak: <p class="meat">0</p>
             </br>
-            Total of the Day:
+            Total of the Day: <p class="meatTotal">0</p>
           </div>
 
           <div class="flex-item">
@@ -137,7 +153,7 @@
             </br>
                Turkey Steak: <p class="meat">0</p>
               </br>
-              Total of the Day:
+              Total of the Day: <p class="meatTotal">0</p>
             </div>
 
             <div class="flex-item">
@@ -148,7 +164,7 @@
               </br>
                  Turkey Steak: <p class="meat">0</p>
                 </br>
-                Total of the Day:
+                Total of the Day: <p class="meatTotal">0</p>
               </div>
 
               <div class="flex-item">
@@ -159,7 +175,7 @@
                 </br>
                    Turkey Steak: <p class="meat">0</p>
                   </br>
-                  Total of the Day:
+                  Total of the Day: <p class="meatTotal">0</p>
                 </div>
 
       
