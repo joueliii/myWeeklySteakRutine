@@ -11,8 +11,13 @@
   var meats = document.getElementsByClassName("meat")
   var meatTotal = document.getElementsByClassName("meatTotal")
   var meat;
-  var dayTotals = [0, 0, 0, 0, 0, 0, 0];
-  // totalWeight variable declared outside of a function so it becomes a global varialbe
+  var dayTotals = [0, 0, 0, 0, 0, 0, 0]; // an array to store the day totals
+
+
+
+
+
+  // totalWeight variable declared outside of a function so it becomes a global variable
   function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
     var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
   if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is a number and within limits
@@ -80,14 +85,19 @@
 
     }
   }
-  }
+  } // This is the function that controls everything that happens when the add button is pressed
   function revealStakeKing() {
     if(totalWeight > 500) {
       document.getElementById('king').innerHTML = "<img src='steak.jpg'>";
     }
 
-  }
-  
+  } // the function reveals the stake king graphic when the total amount of steak is over 500 kilograms
+
+
+
+
+
+
   
   </script>
 
@@ -204,8 +214,43 @@
       <input type="text" name="weight" size='10'>
     </form></br>
     <button type="button" onclick="inputData()">Add</button>
+    <p> <input type="checkbox" name="surveyOpen" id="survey" onClick="showSurvey()">I want to participate in a meat survey.</p>
+    <div id="surveyBox">
+    <fieldset>
+     <legend>Meat survey</legend>
+        <p>How do you like your steak?</p>
+        <form name="surveychoice">
+            <input type="radio" name="steak" value="raw"> RAW!<br>
+            <input type="radio" name="steak" value="rare"> Rare<br>
+            <input type="radio" name="steak" value="mediumrare"> Medium Rare<br>
+            <input type="radio" name="steak" value="medium"> Medium<br>
+            <input type="radio" name="steak" value="welldone" >Well done<br>
+            <input type="radio" name="steak" value="nomeat"> Actually I don't like meat.
+        </form>
+
+    </fieldset>
+    </div>
 
     <p id=king></p>
+
+<script>
+    var survey = document.getElementById('surveyBox');
+    survey.style.display = "none";
+
+  function showSurvey() {
+
+
+      var selection = document.getElementById("survey").checked;
+
+      if (!selection) {
+          survey.style.display = "none";
+      }
+      else {
+          survey.style.display = "block";
+      }
+
+  }
+</script>
 
 </body>
 </html>
