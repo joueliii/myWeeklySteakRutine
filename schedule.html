@@ -21,7 +21,11 @@
   function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
     var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
   if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is a number and within limits
-    alert("Invalid steak weight!!!") 
+    alert("Invalid steak weight!!!");
+      var errorField = document.forms.inputForm.weight;
+      errorField.style.borderColor = "red";
+      errorField.select();
+      errorField.focus();
   } else {
     totalWeight += WeightInput;
     document.getElementById('weightcounter').innerHTML = "Total Amount of Delicious Steak Devoured: " + totalWeight + " KG"
