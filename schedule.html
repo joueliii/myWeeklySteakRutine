@@ -5,47 +5,42 @@
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="schedule.css">
   <script>
-  // This is our own Javascript code... 
- 
-  var totalWeight = 0;
-  var meats = document.getElementsByClassName("meat")
-  var meatTotal = document.getElementsByClassName("meatTotal")
-  var meat;
-  var dayTotals = [0, 0, 0, 0, 0, 0, 0]; // an array to store the day totals
-
-
-
-
-
+  var totalWeight = 0; // Setting up the total amount of meat, intialized here so it won't lose it's contents on the way.
+  var meats = document.getElementsByClassName("meat") // capturing the the different elements with the class meat, that is where we write our daily amounts.
+  var meatTotal = document.getElementsByClassName("meatTotal") // The meat total paragraph where the total amount of meat is written
+  var meat; // useless variable, not really used but could be nice for future functionality, not getting rid of it.
+  var dayTotals = [0, 0, 0, 0, 0, 0, 0]; // an array to store the day totals, initialized here so it won't lose it's contents
   // totalWeight variable declared outside of a function so it becomes a global variable
-  function inputData() { // This function tracks the total amount of KG's and at the end runs another function to check if the kg amount is enough for steak.jpg to appear.
-    var WeightInput = parseInt(document.forms["inputForm"]["weight"].value);
-  if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is a number and within limits
-    alert("Invalid steak weight!!!");
+  function inputData() { // This function is fired when the add button is pressed and writes the inputted amount in the form to the right place.
+    var WeightInput = parseInt(document.forms["inputForm"]["weight"].value); // Look up the value in the weight form, convert it to INT and place it in the variable
+  if (WeightInput < 0 || WeightInput > 1000 || isNaN(WeightInput)) { // Check if the inputted value is within limits and a positive number, also checks if the int conversion resulted into a NaN. This prevents inputting a string.
+    alert("Invalid steak weight!!!"); // Alerts the user that the input is not allowed if one of the three conditions is true
       var errorField = document.forms.inputForm.weight;
-      errorField.style.borderColor = "red";
-      errorField.select();
-      errorField.focus();
-  } else {
-    totalWeight += WeightInput;
-    document.getElementById('weightcounter').innerHTML = "Total Amount of Delicious Steak Devoured: " + totalWeight + " KG"
-    revealStakeKing();
-    var day = 0;
 
-    switch (document.forms.inputForm.steakDay.value) {
+          errorField.style.borderColor = "red"; // Sets the border color to red if the input is incorrect
 
-        case "Monday":
+      errorField.select(); // selects the box
+      errorField.focus(); // and sets focus to it
+  } else { // input is ok so we move here
+    totalWeight += WeightInput; // adds the inputted weight to the total weight variable
+    document.getElementById('weightcounter').innerHTML = "Total Amount of Delicious Steak Devoured: " + totalWeight + " KG" // This is not the most beautiful way to do this but we overwrite the whole innerHTML sentence with a similiar one and one change the number by using the totalweight variable
+    revealStakeKing(); // We fire up this function to see if the total amount has exceeded 500kg and if the steak king should appear.
+    var day = 0; // we set up the value for the chosen day
+
+    switch (document.forms.inputForm.steakDay.value) { // the first switch checks the dropdown for a value, in this case which day is chosen.
+
+        case "Monday": // Once again this is a bit complicated way of doing it.
             day = 0;
-            dayTotals[0] += WeightInput;
-            meatTotal[0].innerHTML = dayTotals[0];
+            dayTotals[0] += WeightInput; // inputted amount is added to the daytotal array in the appropriate index
+            meatTotal[0].innerHTML = dayTotals[0]; // the meatTotal array holds the different Total of the day paragraphs and the day total is written into that section, in this case to index 0 because it's monday
             break;
         case "Tuesday":
-            day = 3;
+            day = 3; // The day counter jumps to the beginning of a new column, there are 3 different types of meats (meat class paragraphs, the total meat paragraph is not meat class) so 0, 1, 2 belong to monday and 3, 4, 5 to tuesday and so on.
             dayTotals[1] += WeightInput;
-            meatTotal[1].innerHTML = dayTotals[1];
+            meatTotal[1].innerHTML = dayTotals[1]; // meat total html elements differ in class from the regular meat elements so they follow their own index tuesday is second and thus 1.
             break;
         case "Wednesday":
-            day = 6;
+            day = 6; // once again the column jump, this value is used in the next part when writing the amount of meat to it's proper place.
             dayTotals[2] += WeightInput;
             meatTotal[2].innerHTML = dayTotals[2];
             break;
@@ -73,46 +68,41 @@
 
     }
 
-    switch (document.forms.inputForm.steakMenu.value) {
-    case "Beef Steak":
-        meat = "Beef Steak";
-        meats[day].innerHTML = WeightInput
+    switch (document.forms.inputForm.steakMenu.value) { // After we have written the day total and got the appropriate value to the day variable we are ready to write the meat amount to it's proper place, so first we capture the type of meat from the dropdown and use that as the trigger of our switch case
+        case "Beef Steak":
+        meat = "Beef Steak"; // This variable is actually useless, we had a plan for it but never used it, didn't bother deleting it.
+        meats[day].innerHTML = WeightInput   // and we select the proper meat class element from the meats array and write the inputted amount to it. See here that we use the variable day that has a value indicating the right column to write to. If it is monday it's value is 0
         break;
-    case "Pork Steak":
+        case "Pork Steak":
         meat = "Pork Steak";
-        meats[day + 1].innerHTML = WeightInput
+        meats[day + 1].innerHTML = WeightInput // now here we use the day value once a again, it contains the index of the right column, it could be 3 if tuesday was selected and now we add 1 to it because pork steak is second row in the tuesday column
         break;
-    case "Turkey Steak":
+        case "Turkey Steak":
         meat = "Turkey Steak";
-        meats[day + 2].innerHTML = WeightInput
+        meats[day + 2].innerHTML = WeightInput // here we do it with the third column, of course we could also use this to write to the total of the day row but I wanted to separate it from this part.
         break;
 
     }
   }
   } // This is the function that controls everything that happens when the add button is pressed
-  function revealStakeKing() {
+  function revealStakeKing() { // the function reveals the stake king graphic when the total amount of steak is over 500 kilograms (totalWeight variable)
     if(totalWeight > 500) {
-      document.getElementById('king').innerHTML = "<img src='steak.jpg'>";
+      document.getElementById('king').innerHTML = "<img src='steak.jpg'>"; // if true, the stake king image is displayed
     }
 
-  } // the function reveals the stake king graphic when the total amount of steak is over 500 kilograms
+  }
 
-
-
-
-
-
-  
+  // there's more script at the bottom, for some reason that part did not work here because "all of the content has not loaded yet". (Actually figured that part out later but didn't bother moving the part back to up here, yeah I'm lazy, sue me)
   </script>
 
 </head>
 <body>
 
-    <img src="logo.jpg"></br>
+    <img src="logo.jpg"></br>  <!-- countless minutes were spent creating this logo masterpiece in photoshop. -->
   <h1>My Weekly Steak Routine</h1>
 </br>
-  <p></p> 
-
+  <p></p>
+    <p id=king></p>
 <div class="container">
 
   <div class="flex-item">
@@ -236,32 +226,32 @@
     </fieldset>
     </div>
 
-    <p id=king></p>
+
 
 <script>
-    var survey = document.getElementById('surveyBox');
-    survey.style.display = "none";
+    var survey = document.getElementById('surveyBox'); // here we get the info of the box that is hidden at the beginning
+    survey.style.display = "none"; // we hide the survey field set by default
 
-  function showSurvey() {
+  function showSurvey() { // this shows and hides the survey by checking the state of the checkbox
 
 
-      var selection = document.getElementById("survey").checked;
+      var selection = document.getElementById("survey").checked; // is the survey checkbox checked or not
 
       if (!selection) {
-          survey.style.display = "none";
+          survey.style.display = "none"; // it's not so we hide the content
       }
       else {
-          survey.style.display = "block";
+          survey.style.display = "block"; // it is so we show the content
       }
 
   }
 
 
-  function surveyAnswer() {
-      var choice = document.forms.surveychoice.steak.value;
-      switch(choice) {
+  function surveyAnswer() { // this function is fired when the answer button is pressed and it captures the value of the radio buttons and displays a message according to the answer
+      var choice = document.forms.surveychoice.steak.value; // let's capture the value and once again resort to a switch
+       switch(choice) {
           case "raw":
-              alert("YOU'RE A REAL BEAST! I LIKE YOUR STYLE!")
+              alert("YOU'RE A REAL BEAST! I LIKE YOUR STYLE!") // Alerts messages
           break;
 
           case "rare":
@@ -280,9 +270,9 @@
               alert("YOU HEATHEN! GET OUT OF MY SIGHT!")
               break;
 
-          case "nomeat":
-              alert("Please leave...")
-              window.location.href = "https://www.vegansociety.com";
+           case "nomeat":
+              alert("Please leave...") // Just a bit of humour, if you're a vegetarian or vegan I don't mean to offend, it's your choice man.
+              window.location.href = "https://www.vegansociety.com"; // wanted to go for something different here and this choice redirects the user to a different web page.
               break;
       }
   }
