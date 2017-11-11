@@ -222,7 +222,7 @@
         <form name="surveychoice">
             <input type="radio" name="steak" value="raw"> RAW!<br>
             <input type="radio" name="steak" value="rare"> Rare<br>
-            <input type="radio" name="steak" value="mediumrare"> Medium Rare<br>
+            <input type="radio" name="steak" value="mediumrare" checked> Medium Rare<br>
             <input type="radio" name="steak" value="medium"> Medium<br>
             <input type="radio" name="steak" value="welldone" >Well done<br>
             <input type="radio" name="steak" value="nomeat"> Actually I don't like meat.
@@ -254,7 +254,33 @@
 
 
   function surveyAnswer() {
+      var choice = document.forms.surveychoice.steak.value;
+      switch(choice) {
+          case "raw":
+              alert("YOU'RE A REAL BEAST! I LIKE YOUR STYLE!")
+          break;
 
+          case "rare":
+              alert("Nice and juicy, just the way I like it!")
+              break;
+
+          case "mediumrare":
+              alert("You're an ok guy, I guess...")
+              break;
+
+          case "medium":
+              alert("Join the club, mate")
+              break;
+
+          case "welldone":
+              alert("YOU HEATHEN! GET OUT OF MY SIGHT!")
+              break;
+
+          case "nomeat":
+              alert("Please leave...")
+              window.location.href = "https://www.vegansociety.com";
+              break;
+      }
   }
 </script>
 
