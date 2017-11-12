@@ -9,7 +9,7 @@
     padding: 10px;
 }
 
-.flex-item-top{
+.flex-item-noborder{
     flex-grow: 1;
     margin: 5px;
     padding: 10px;
@@ -27,4 +27,25 @@
 
 h1 {
     margin: 5px;
+}
+
+button {
+    border-color: #D50000;
+    background: white;
+}
+
+hr {
+    height: 1px; 
+    background-color: grey; 
+    width: 98%;
+    color: grey;
+    border-color: grey;
+}
+
+.shorterline {
+    height: 1px; 
+    background-color: #DD2C00; 
+    width: 98%;
+    color: #DD2C00;
+    border-color: #DD2C00;
 }
