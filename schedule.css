@@ -4,9 +4,20 @@
 
 .flex-item{
     flex-grow: 1;
+    border: 2px solid #D50000;
+    margin: 5px;
+    padding: 10px;
 }
 
 id.surveyBox {
-
     display: none;
+}
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.king {
+    height: 100px;
+    width: 100px;
 }

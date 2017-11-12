@@ -4,6 +4,7 @@
   <title>My Weekly Steak Routine</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="schedule.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <script>
   var totalWeight = 0; // Setting up the total amount of meat, intialized here so it won't lose it's contents on the way.
   var meats = document.getElementsByClassName("meat") // capturing the the different elements with the class meat, that is where we write our daily amounts.
@@ -100,13 +101,12 @@
 
     <img src="logo.jpg"></br>  <!-- countless minutes were spent creating this logo masterpiece in photoshop. -->
   <h1>My Weekly Steak Routine</h1>
+  <p id=king></p>
 </br>
-  <p></p>
-    <p id=king></p>
 <div class="container">
 
   <div class="flex-item">
-    Monday</br></br>
+    <h3>Monday</h3></br>
     Beef Steak: <p class="meat">0</p>
     </br>
     Pork Steak: <p class="meat">0</p>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="flex-item">
-      Tuesday</br></br>
+        <h3>Tuesday</h3></br>
       Beef Steak: <p class="meat">0</p>
       </br>
       Pork Steak: <p class="meat">0</p>
@@ -128,7 +128,7 @@
       </div>
 
       <div class="flex-item">
-        Wednesday</br></br>
+        <h3>Wednesday</h3></br>
         Beef Steak: <p class="meat">0</p>
         </br>
         Pork Steak: <p class="meat">0</p>
@@ -139,7 +139,7 @@
         </div>
 
         <div class="flex-item">
-          Thursday</br></br>
+            <h3>Thursday</h3></br>
           Beef Steak: <p class="meat">0</p>
           </br>
           Pork Steak: <p class="meat">0</p>
@@ -150,7 +150,7 @@
           </div>
 
           <div class="flex-item">
-            Friday</br></br>
+            <h3>Friday</h3></br>
             Beef Steak: <p class="meat">0</p>
             </br>
             Pork Steak: <p class="meat">0</p>
@@ -161,7 +161,7 @@
             </div>
 
             <div class="flex-item">
-              Saturday</br></br>
+                <h3>Saturday</h3></br>
               Beef Steak: <p class="meat">0</p>
               </br>
               Pork Steak: <p class="meat">0</p>
@@ -172,7 +172,7 @@
               </div>
 
               <div class="flex-item">
-                Sunday</br></br>
+                <h3>Sunday</h3></br>
                 Beef Steak: <p class="meat">0</p>
                 </br>
                 Pork Steak: <p class="meat">0</p>
@@ -218,7 +218,7 @@
             <input type="radio" name="steak" value="rare"> Rare<br>
             <input type="radio" name="steak" value="mediumrare" checked> Medium Rare<br>
             <input type="radio" name="steak" value="medium"> Medium<br>
-            <input type="radio" name="steak" value="welldone" >Well done<br>
+            <input type="radio" name="steak" value="welldone" > Well done<br>
             <input type="radio" name="steak" value="nomeat"> Actually I don't like meat.
         </form><br>
         <button type="button" onclick="surveyAnswer()">Answer</button>
