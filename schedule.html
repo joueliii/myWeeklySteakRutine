@@ -88,7 +88,7 @@
   } // This is the function that controls everything that happens when the add button is pressed
   function revealStakeKing() { // the function reveals the stake king graphic when the total amount of steak is over 500 kilograms (totalWeight variable)
     if(totalWeight > 500) {
-      document.getElementById('king').innerHTML = "<img src='steak.jpg'>"; // if true, the stake king image is displayed
+      document.getElementById('king').innerHTML = "<img src='steak_resized.jpg'>"; // if true, the steak king image is displayed
     }
 
   }
@@ -98,13 +98,11 @@
 
 </head>
 <body>
-
-    <img src="logo.jpg"></br>  <!-- countless minutes were spent creating this logo masterpiece in photoshop. -->
-  <h1>My Weekly Steak Routine</h1>
-  <p id=king></p>
+<img src="logo.jpg"></br>  <!-- countless minutes were spent creating this logo masterpiece in photoshop. -->
+</br>
+<h1>My Weekly Steak Routine</h1> 
 </br>
 <div class="container">
-
   <div class="flex-item">
     <h3>Monday</h3></br>
     Beef Steak: <p class="meat">0</p>
@@ -185,8 +183,10 @@
       
 </div>
 </br>
-<h1 id='weightcounter'>Total Amount of Delicious Steak Devoured: 0 KG</h1>
-    Steak type:</br>
+<h1 id='weightcounter'>Total Amount of Delicious Steak Devoured: 0 KG</h1></br>
+<div class="container">
+    <div class="flex-item-noborder">
+    Steak type and day:</br>
     <form name='inputForm'>
       <select name='steakMenu' size='1'>
         <option>Beef Steak</option>
@@ -206,8 +206,15 @@
       </br></br>
       Weight:</br>
       <input type="text" name="weight" size='10'>
-    </form></br>
-    <button type="button" onclick="inputData()">Add</button>
+      <button type="button" onclick="inputData()">Add</button>
+    </form>
+    </div>
+
+    <div class="flex-item-noborder">
+        <p id="king"></p>
+    </div>
+</div>
+
     <p> <input type="checkbox" name="surveyOpen" id="survey" onClick="showSurvey()">I want to participate in a meat survey.</p>
     <div id="surveyBox">
     <fieldset>

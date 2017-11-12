@@ -9,15 +9,22 @@
     padding: 10px;
 }
 
-id.surveyBox {
+.flex-item-top{
+    flex-grow: 1;
+    margin: 5px;
+    padding: 10px;
+    width: 100px;
+}
+
+.surveyBox {
     display: none;
+    border: 2px solid #D50000;
 }
 
 * {
     font-family: 'Raleway', sans-serif;
 }
 
-.king {
-    height: 100px;
-    width: 100px;
+h1 {
+    margin: 5px;
 }
